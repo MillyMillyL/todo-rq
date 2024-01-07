@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 .app {
-  max-width: 800px;
-  width: max-content;
+  max-width: 500px;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   background-color: skyblue;
   padding: 1rem;
   border-radius: 20px;
+  height: 95vh;
 }

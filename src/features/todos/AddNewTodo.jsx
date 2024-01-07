@@ -18,7 +18,7 @@ function AddNewTodo() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8 text-center">
+    <form onSubmit={handleSubmit} className="mb-4 mt-2 text-center">
       <label htmlFor="new-todo" className="mr-4">
         Add new todo
       </label>
@@ -28,7 +28,7 @@ function AddNewTodo() {
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
         placeholder="Enter new todo"
-        className="mr-4"
+        className="mr-4 px-2 py-1 rounded-lg"
       />
       <button>
         <FaUpload />

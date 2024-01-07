@@ -1,8 +1,11 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getTodos, updateTodo, deleteTodo } from "../../api/todosApi";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { useState } from "react";
 
 function TodoList() {
+  const [onlyShowUncompleted, setOnlyShowUncompleted] = useState(false);
+
   const queryClient = useQueryClient();
 
   const {
@@ -15,6 +18,8 @@ function TodoList() {
     queryKey: ["todos"],
     select: (data) => data.sort((a, b) => b.id - a.id),
   });
+
+  const uncompletedTodos = todos?.filter((todo) => todo.completed === false);
 
   const updateTodoMutation = useMutation({
     mutationFn: updateTodo,
@@ -30,16 +35,16 @@ function TodoList() {
   if (isError) return <p>{error.message}</p>;
 
   return (
-    <>
+    <div>
       <p>
         <span className="text-red-500 font-bold">
           {todos.filter((todo) => todo.completed === false).length}
         </span>{" "}
         uncompleted tasks
       </p>
-      <ul className="list-none">
-        {todos.map((todo) => (
-          <li key={todo.id} className="leading-loose">
+      <ul className="list-none mt-2 overflow-auto h-[60vh]">
+        {(!onlyShowUncompleted ? todos : uncompletedTodos).map((todo) => (
+          <li key={todo.id} className="leading-loose flex gap-4">
             <input
               type="checkbox"
               checked={todo.completed}
@@ -63,7 +68,17 @@ function TodoList() {
           </li>
         ))}
       </ul>
-    </>
+      <input
+        type="checkbox"
+        id="show-uncompleted"
+        className="mt-4"
+        checked={onlyShowUncompleted}
+        onChange={() => setOnlyShowUncompleted((prev) => !prev)}
+      />
+      <label htmlFor="show-uncompleted" className="ml-2">
+        Only show uncompleted tasks
+      </label>
+    </div>
   );
 }
 
