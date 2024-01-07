@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const todosApi = axios.create({ baseURL: "http://localhost:3000" });
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+console.log(baseURL, "base url");
+
+const todosApi = axios.create({ baseURL });
 
 export const getTodos = async () => {
   const res = await todosApi.get("/todos");
