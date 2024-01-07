@@ -1,8 +1,25 @@
-# React + Vite
+## Build Image Json_server
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### -- docker build -f Dockerfile_json_server -t json_server_rq:v1.2 .
 
-Currently, two official plugins are available:
+## Create Container Json_server
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### -- docker run -d --name my_json_server -p 3000:3000 json_server_rq:v1.2
+
+###----------------------------------------------------------------
+
+## Build Image Todo list
+
+### -- docker build -t todolist:v1.0 .
+
+## Create Container Todo list
+
+### -- docker run -d --name todolist -p 5848:80 todo:v1.0
+
+###----------------------------------------------------------------
+
+## docker compose
+
+### -- docker compose up -d
+
+### --- docker compose down --rmi all
