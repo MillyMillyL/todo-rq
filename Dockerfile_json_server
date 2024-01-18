@@ -1,9 +1,0 @@
-FROM node:18-alpine3.18 as builder
-EXPOSE 3000
-
-WORKDIR /app
-
-RUN npm install json-server@v0.17.4
-COPY ./data/db.json ./data/
-
-CMD [ "npx", "json-server","-H","0.0.0.0", "-w","data/db.json"]
