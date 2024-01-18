@@ -19,7 +19,12 @@ function TodoList() {
   } = useQuery({
     queryKey: ["todos"],
     queryFn: apiTodos,
+    select: (data) => {
+      return data.sort((a, b) => b.id - a.id);
+    },
   });
+
+  console.log(todos);
 
   const uncompletedTodos = todos?.filter((todo) => todo.completed === false);
   const numUncompleted = uncompletedTodos?.length;
