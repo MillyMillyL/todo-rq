@@ -24,8 +24,6 @@ function TodoList() {
     },
   });
 
-  console.log(todos);
-
   const uncompletedTodos = todos?.filter((todo) => todo.completed === false);
   const numUncompleted = uncompletedTodos?.length;
 
@@ -43,12 +41,12 @@ function TodoList() {
   if (isError) return <p>{error.message}</p>;
 
   return (
-    <div>
+    <div className="px-8">
       <p>
         <span className="text-red-500 font-bold">{numUncompleted}</span>{" "}
         uncompleted tasks
       </p>
-      <ul className="list-none mt-2 overflow-auto h-[60vh]">
+      <ul className="list-none mt-2 overflow-auto max-h-[70vh]">
         {(!onlyShowUncompleted ? todos : uncompletedTodos).map((todo) => (
           <li key={todo.id} className="leading-loose flex gap-4">
             <input

@@ -18,7 +18,7 @@ function AddNewTodo() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 mt-2 text-center">
+    <form onSubmit={handleSubmit} className="mb-6 text-center">
       <label htmlFor="new-todo" className="mr-4">
         Add new todo
       </label>
