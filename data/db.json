@@ -2,136 +2,83 @@
   "todos": [
     {
       "userId": 1,
-      "id": 1,
-      "title": "delectus aut autem",
+      "title": "nice to see you",
       "completed": true,
-      "competed": true
+      "id": 30
     },
     {
       "userId": 1,
-      "id": 2,
-      "title": "quis ut nam facilis et officia qui",
+      "title": "Watch a movie",
       "completed": true,
-      "competed": true
+      "id": 31
     },
     {
       "userId": 1,
-      "id": 5,
-      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-      "completed": true,
-      "competed": true
-    },
-    {
-      "userId": 1,
-      "id": 6,
-      "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-      "completed": true,
-      "competed": true
-    },
-    {
-      "userId": 1,
-      "id": 7,
-      "title": "illo expedita consequatur quia in",
+      "title": "Read a book",
       "completed": false,
-      "competed": true
+      "id": 32
     },
     {
       "userId": 1,
-      "id": 8,
-      "title": "quo adipisci enim quam ut ab",
+      "title": "It's snowing",
       "completed": false,
-      "competed": false
+      "id": 33
     },
     {
       "userId": 1,
-      "title": "aaaa",
+      "title": "Work out",
       "completed": false,
-      "id": 9,
-      "competed": true
+      "id": 34
     },
     {
       "userId": 1,
-      "title": "cccc",
-      "completed": true,
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "title": "sudhfuihfvdv",
+      "title": "Cook a meal",
       "completed": false,
-      "id": 11
+      "id": 35
     },
     {
       "userId": 1,
-      "title": "fkdsgkdl",
+      "title": "Go to a trip",
       "completed": false,
-      "id": 12
+      "id": 36
     },
     {
       "userId": 1,
-      "title": "fndjbnkgdb",
+      "title": "Go to ski",
       "completed": false,
-      "id": 13
+      "id": 37
     },
     {
       "userId": 1,
-      "title": "njnjvn",
+      "title": "What a good day",
       "completed": false,
-      "id": 14
+      "id": 38
     },
     {
       "userId": 1,
-      "title": "nknknkjb",
+      "title": "Today is Wednesday",
       "completed": false,
-      "id": 21
+      "id": 39
     },
     {
-      "userId": 1,
-      "title": "hhk",
-      "completed": false,
-      "id": 22
+      "new todo from app": "",
+      "id": 40
     },
     {
-      "userId": 1,
-      "title": "hhhhh",
-      "completed": false,
-      "id": 23
+      "new todo from app": "",
+      "id": 41
     },
     {
-      "userId": 1,
-      "title": "sfsfgdrhg",
-      "completed": false,
-      "id": 24
+      "newTodo": "new todo from app",
+      "id": 42
     },
     {
-      "userId": 1,
-      "title": "dfgbdbhd",
-      "completed": false,
-      "id": 25
+      "newTodo": "new todo from app",
+      "id": 43
     },
     {
-      "userId": 1,
-      "title": "dsbdfbgfb",
-      "completed": false,
-      "id": 26
-    },
-    {
-      "userId": 1,
-      "title": "fdnggfnfhn",
-      "completed": false,
-      "id": 27
-    },
-    {
-      "userId": 1,
-      "title": "fgnfgnhfm",
-      "completed": false,
-      "id": 28
-    },
-    {
-      "userId": 1,
-      "title": "cgnfgnfh",
-      "completed": false,
-      "id": 29
+      "newTodo": "new todo from app",
+      "id": 44
     }
   ]
 }

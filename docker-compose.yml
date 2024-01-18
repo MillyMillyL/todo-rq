@@ -2,19 +2,19 @@ services:
   webapp:
     build:
       context: .
-      dockerfile: Dockerfile    
+      dockerfile: Dockerfile
     # container_name: todolist
     networks:
       - todolist_network
-    ports:
-      - "8864:80"
+    # ports:
+    #   - "8864:80"
     depends_on:
       - my_json_server
 
   my_json_server:
     build:
       context: .
-      dockerfile: Dockerfile_json_server    
+      dockerfile: Dockerfile_json_server
     # container_name: my_json_server
     networks:
       - todolist_network
@@ -23,5 +23,5 @@ services:
 
 networks:
   todolist_network:
-   name: todolist_network
-   driver: bridge
+    name: todolist_network
+    driver: bridge

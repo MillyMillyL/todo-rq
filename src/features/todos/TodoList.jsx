@@ -1,33 +1,36 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getTodos, updateTodo, deleteTodo } from "../../api/todosApi";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useState } from "react";
+import {
+  getTodos as apiTodos,
+  updateTodo as apiUpdateTodo,
+  deleteTodo as apiDeleteTodo,
+} from "../../services/apiTodos";
 
 function TodoList() {
   const [onlyShowUncompleted, setOnlyShowUncompleted] = useState(false);
-
   const queryClient = useQueryClient();
 
   const {
     isLoading,
     isError,
-    data: todos,
     error,
+    data: todos,
   } = useQuery({
-    queryFn: getTodos,
     queryKey: ["todos"],
-    select: (data) => data.sort((a, b) => b.id - a.id),
+    queryFn: apiTodos,
   });
 
   const uncompletedTodos = todos?.filter((todo) => todo.completed === false);
+  const numUncompleted = uncompletedTodos?.length;
 
   const updateTodoMutation = useMutation({
-    mutationFn: updateTodo,
+    mutationFn: apiUpdateTodo,
     onSuccess: () => queryClient.invalidateQueries("todos"),
   });
 
   const deleteTodoMutation = useMutation({
-    mutationFn: deleteTodo,
+    mutationFn: apiDeleteTodo,
     onSuccess: () => queryClient.invalidateQueries("todos"),
   });
 
@@ -37,9 +40,7 @@ function TodoList() {
   return (
     <div>
       <p>
-        <span className="text-red-500 font-bold">
-          {todos.filter((todo) => todo.completed === false).length}
-        </span>{" "}
+        <span className="text-red-500 font-bold">{numUncompleted}</span>{" "}
         uncompleted tasks
       </p>
       <ul className="list-none mt-2 overflow-auto h-[60vh]">
@@ -49,12 +50,13 @@ function TodoList() {
               type="checkbox"
               checked={todo.completed}
               id={todo.id}
-              onChange={() =>
+              onChange={() => {
+                console.log("changed");
                 updateTodoMutation.mutate({
                   ...todo,
                   completed: !todo.completed,
-                })
-              }
+                });
+              }}
             />
             <label
               htmlFor={todo.id}
@@ -62,7 +64,7 @@ function TodoList() {
             >
               {todo.title}
             </label>
-            <button onClick={() => deleteTodoMutation.mutate({ id: todo.id })}>
+            <button onClick={() => deleteTodoMutation.mutate(todo.id)}>
               <FaRegTrashCan />
             </button>
           </li>

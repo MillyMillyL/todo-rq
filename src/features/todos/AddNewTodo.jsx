@@ -1,19 +1,19 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addTodo } from "../../api/todosApi";
+
 import { useState } from "react";
 import { FaUpload } from "react-icons/fa6";
+import { addTodos as apiAddTodo } from "../../services/apiTodos";
 
 function AddNewTodo() {
   const [newTodo, setNewTodo] = useState("");
   const queryClient = useQueryClient();
   const addTodoMutation = useMutation({
-    mutationFn: addTodo,
+    mutationFn: apiAddTodo,
     onSuccess: () => queryClient.invalidateQueries("todos"),
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTodoItem = { userId: 1, title: newTodo, completed: false };
-    addTodoMutation.mutate(newTodoItem);
+    addTodoMutation.mutate(newTodo);
     setNewTodo("");
   };
 
