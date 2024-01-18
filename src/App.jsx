@@ -4,7 +4,7 @@ import AddNewTodo from "./features/todos/AddNewTodo";
 function App() {
   return (
     <main className="app">
-      <h1 className="text-3xl text-center mb-6">Todo List</h1>
+      <h1 className="text-3xl text-center mb-6 pt-4">Todo List</h1>
       <AddNewTodo />
       <TodoList />
     </main>
